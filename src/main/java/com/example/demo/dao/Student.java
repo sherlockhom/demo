@@ -1,16 +1,19 @@
 package com.example.demo.dao;
 
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
-
+@ApiModel("学生模型")
 public class Student implements Serializable {
 
+    @ApiModelProperty("学生id")
     private Integer id;
+
+    @ApiModelProperty("学生姓名")
     private String name;
+
+    @ApiModelProperty("学生年龄")
     private Integer age;
 
     public void setId(Integer id) {

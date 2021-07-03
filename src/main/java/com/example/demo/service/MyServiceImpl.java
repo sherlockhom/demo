@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @Service
 @RestController
 public class MyServiceImpl implements MyService{
@@ -31,5 +33,10 @@ public class MyServiceImpl implements MyService{
     @Override
     public int modifyStudent(Student student) {
         return myMapper.modifyStudent(student);
+    }
+
+    @Override
+    public List<Student> selectAll() {
+        return myMapper.selectAll();
     }
 }
