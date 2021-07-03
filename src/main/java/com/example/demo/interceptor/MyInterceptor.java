@@ -6,6 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Component
 public class MyInterceptor implements HandlerInterceptor {
@@ -13,7 +14,16 @@ public class MyInterceptor implements HandlerInterceptor {
     //Controller方法调用之前
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        return HandlerInterceptor.super.preHandle(request, response, handler);
+        Object user = request.getSession().getAttribute("user");
+        System.out.println("prehandle");
+        if (user == null) {
+            request.setAttribute("msg", "无权限请先登录");
+            request.getRequestDispatcher("login").forward(request, response);
+            return false;
+        } else {
+            return true;
+        }
+
     }
 
     //Controller方法调用之后，视图渲染之前
