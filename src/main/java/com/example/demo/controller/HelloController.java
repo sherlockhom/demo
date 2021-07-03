@@ -3,8 +3,6 @@ package com.example.demo.controller;
 import com.example.demo.dao.Student;
 import com.example.demo.service.MyService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +19,7 @@ import java.util.List;
  * @Api 通常用来为Controller类做注释，说明Controller的职能
  * @ApiOperation 通常用来为一个接口做注释,说明接口的职能
  */
-@Api(tags = "interface",description = "student")
+@Api(tags = "学生管理",description = "student")
 @RestController
 @RequestMapping("/student")
 public class HelloController {
