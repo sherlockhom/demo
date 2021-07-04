@@ -1,6 +1,6 @@
 package com.example.demo.mapper;
 
-import com.example.demo.dao.User;
+import com.example.demo.domain.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

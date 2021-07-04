@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.dao.Student;
+import com.example.demo.domain.Student;
 import com.example.demo.service.MyService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -34,13 +34,13 @@ public class HelloController {
     }
 
     @ApiOperation("查单条信息")
-    @RequestMapping(value = "getStudent/{id}",method = RequestMethod.GET)
+    @RequestMapping(value = "getStudent/{id}",method = RequestMethod.POST)
     public Student getStudent(@PathVariable int id){
         return myService.getStudentInfo(id);
     }
 
     @ApiOperation("删除")
-    @RequestMapping(value = "/delete",method = RequestMethod.GET)
+    @RequestMapping(value = "/delete",method = RequestMethod.DELETE)
     public String delete(int id){
         int result = myService.deleteStudentById(id);
         if (result >= 1){

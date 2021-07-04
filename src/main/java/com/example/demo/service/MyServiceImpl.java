@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.dao.Student;
+import com.example.demo.domain.Student;
 import com.example.demo.mapper.MyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

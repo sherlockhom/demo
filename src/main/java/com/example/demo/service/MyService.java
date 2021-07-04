@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.dao.Student;
+import com.example.demo.domain.Student;
 
 import java.util.List;
 
