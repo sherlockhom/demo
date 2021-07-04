@@ -6,10 +6,10 @@ springboot基础项目
 1、项目结构
     aop——实现相关通知
     config——创建配置类
-    domain——模型层，存放实体类
     filter——过滤器，实现过滤操作
     interceptor——拦截器，主要进行登录拦截
     listener——监听器
+    model——模型层，存放实体类
     ***controller——控制层，实现路径匹配
     ***service——业务层，实现业务处理
     ***mapper——数据操作层，实现对数据库的增删改查操作
