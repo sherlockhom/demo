@@ -1,4 +1,4 @@
-package com.example.demo.domain;
+package com.example.demo.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

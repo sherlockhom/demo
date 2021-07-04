@@ -1,6 +1,6 @@
 package com.example.demo.mapper;
 
-import com.example.demo.domain.Student;
+import com.example.demo.model.Student;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.Student;
+import com.example.demo.model.Student;
 import com.example.demo.service.MyService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
