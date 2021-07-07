@@ -22,6 +22,24 @@
         from student
     </select>
 
+    <!--模糊查询-->
+    <!--<select id="searchByKeyWord" resultType="com.example.demo.model.Student">-->
+
+    <!--    select * from student where age like "%"#{keyword}"%" or name like "%"#{keyword}"%"-->
+    <!--</select>-->
+    <select id="searchByKeyWord" resultType="com.example.demo.model.Student">
+        select * from student where
+        <if test="field == 'all'">
+            name like "%"#{keyword}"%" or age like "%"#{keyword}"%"
+        </if>
+        <if test="field == 'age'">
+            age like "%"#{keyword}"%"
+        </if>
+        <if test="field == 'name'">
+            name like "%"#{keyword}"%"
+        </if>
+    </select>
+
     <!--添加学生信息-->
     <insert id="addStudent" parameterType="com.example.demo.model.Student">
         insert into student(id,age,name) values(#{id},#{age},#{name})

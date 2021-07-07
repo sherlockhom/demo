@@ -1,6 +1,7 @@
 package com.example.demo.mapper;
 
 import com.example.demo.model.Student;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -46,4 +47,10 @@ public interface MyMapper {
      * @return
      */
     List<Student> selectPage();
+
+    /**
+     * 模糊查询
+     * @return
+     */
+    List<Student> searchByKeyWord(@Param("field") String field,@Param("keyword") String keyword);
 }

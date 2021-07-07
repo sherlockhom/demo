@@ -73,4 +73,10 @@ public class HelloController {
     public Object findPage(@RequestBody PageRequest pageRequest){
         return myService.findPage(pageRequest);
     }
+
+    @ApiOperation("模糊查询")
+    @RequestMapping(value = "/searchByKeyword",method = RequestMethod.POST)
+    public List<Student> getStudentByKeyword(String field,String keyword){
+        return myService.searchByKeyWord(field,keyword);
+    }
 }

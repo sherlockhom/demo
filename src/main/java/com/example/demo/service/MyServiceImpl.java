@@ -50,6 +50,11 @@ public class MyServiceImpl implements MyService{
         return PageUtils.getPageResult(pageRequest,getPageInfo(pageRequest));
     }
 
+    @Override
+    public List<Student> searchByKeyWord(String field,String keyword) {
+        return myMapper.searchByKeyWord(field,keyword);
+    }
+
     /**
      * 调用分页插件完成分页
      * @param pageRequest

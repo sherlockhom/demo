@@ -13,4 +13,5 @@ public interface MyService {
     int modifyStudent(Student student);
     List<Student> selectAll();
     PageResult findPage(PageRequest pageRequest);
+    List<Student> searchByKeyWord(String field,String keyword);
 }
