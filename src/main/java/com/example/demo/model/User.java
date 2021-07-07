@@ -3,10 +3,15 @@ package com.example.demo.model;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 @ApiModel("用户模型")
+@Table(name = "user")
 public class User implements Serializable {
+
+    @Id
     @ApiModelProperty("用户id")
     private int id;
 

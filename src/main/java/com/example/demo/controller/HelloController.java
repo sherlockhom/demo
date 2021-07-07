@@ -2,14 +2,12 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Student;
 import com.example.demo.service.MyService;
+import com.example.demo.utils.PageRequest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -69,5 +67,10 @@ public class HelloController {
     @RequestMapping(value = "/selectAll",method = RequestMethod.POST)
     public List<Student> ListStudent(){
         return myService.selectAll();
+    }
+
+    @RequestMapping(value = "/findPage",method = RequestMethod.POST)
+    public Object findPage(@RequestBody PageRequest pageRequest){
+        return myService.findPage(pageRequest);
     }
 }

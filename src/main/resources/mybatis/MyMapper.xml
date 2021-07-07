@@ -11,6 +11,17 @@
         select * from student
     </select>
 
+    <sql id="Base_Column_List">
+        ID, AGE, NAME
+    </sql>
+
+    <!--分页查询-->
+    <select id="selectPage" resultType="com.example.demo.model.Student" parameterType="map">
+        select
+            <include refid="Base_Column_List" />
+        from student
+    </select>
+
     <!--添加学生信息-->
     <insert id="addStudent" parameterType="com.example.demo.model.Student">
         insert into student(id,age,name) values(#{id},#{age},#{name})

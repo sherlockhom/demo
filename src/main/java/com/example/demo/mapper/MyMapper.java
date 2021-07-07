@@ -40,4 +40,10 @@ public interface MyMapper {
      * @return
      */
     List<Student> selectAll();
+
+    /**
+     * 分页查询
+     * @return
+     */
+    List<Student> selectPage();
 }

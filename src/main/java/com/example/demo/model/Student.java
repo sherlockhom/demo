@@ -2,12 +2,19 @@ package com.example.demo.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 @ApiModel("学生模型")
+//table与数据库中的表相对应
+@Table(name = "student")
 public class Student implements Serializable {
 
+    @Id
     @ApiModelProperty("学生id")
+    //@Id设置主键
     private Integer id;
 
     @ApiModelProperty("学生姓名")
