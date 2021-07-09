@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.StuDto;
 import com.example.demo.model.Student;
 import com.example.demo.service.MyService;
 import com.example.demo.utils.PageRequest;
@@ -35,7 +36,7 @@ public class HelloController {
 
     @ApiOperation("查单条信息")
     @RequestMapping(value = "getStudent/{id}",method = RequestMethod.POST)
-    public Student getStudent(@PathVariable int id){
+    public StuDto getStudent(@PathVariable int id){
         return myService.getStudentInfo(id);
     }
 
@@ -65,10 +66,11 @@ public class HelloController {
 
     @ApiOperation("查看列表")
     @RequestMapping(value = "/selectAll",method = RequestMethod.POST)
-    public List<Student> ListStudent(){
+    public List<StuDto> ListStudent(){
         return myService.selectAll();
     }
 
+    @ApiOperation("分页查询")
     @RequestMapping(value = "/findPage",method = RequestMethod.POST)
     public Object findPage(@RequestBody PageRequest pageRequest){
         return myService.findPage(pageRequest);
@@ -76,7 +78,9 @@ public class HelloController {
 
     @ApiOperation("模糊查询")
     @RequestMapping(value = "/searchByKeyword",method = RequestMethod.POST)
-    public List<Student> getStudentByKeyword(String field,String keyword){
+    public List<StuDto> getStudentByKeyword(String field,String keyword){
         return myService.searchByKeyWord(field,keyword);
     }
+
+
 }

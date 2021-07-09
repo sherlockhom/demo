@@ -1,5 +1,6 @@
 package com.example.demo.mapper;
 
+import com.example.demo.dto.StuDto;
 import com.example.demo.model.Student;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -20,37 +21,37 @@ public interface MyMapper {
      * @param id
      * @return
      */
-    Student getStudentInfo(int id);
+    StuDto getStudentInfo(int id);
 
     /**
-     * 根据id获取学生信息
+     * 根据id删除学生信息
      * @param id
      * @return
      */
     int deleteStudentById(int id);
 
     /**
-     * 根据id获取学生信息
+     * 修改学生信息
      * @param student
      * @return
      */
     int modifyStudent(Student student);
 
     /**
-     * 根据id获取学生信息
+     * 获取所有学生信息
      * @return
      */
-    List<Student> selectAll();
+    List<StuDto> selectAll();
 
     /**
      * 分页查询
      * @return
      */
-    List<Student> selectPage();
+    List<StuDto> selectPage();
 
     /**
      * 模糊查询
      * @return
      */
-    List<Student> searchByKeyWord(@Param("field") String field,@Param("keyword") String keyword);
+    List<StuDto> searchByKeyWord(@Param("field") String field,@Param("keyword") String keyword);
 }

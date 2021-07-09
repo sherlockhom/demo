@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.dto.StuDto;
 import com.example.demo.model.Student;
 import com.example.demo.mapper.MyMapper;
 import com.example.demo.utils.PageRequest;
@@ -26,7 +27,7 @@ public class MyServiceImpl implements MyService{
     }
 
     @Override
-    public Student getStudentInfo(int id) {
+    public StuDto getStudentInfo(int id) {
         return myMapper.getStudentInfo(id);
     }
 
@@ -41,7 +42,7 @@ public class MyServiceImpl implements MyService{
     }
 
     @Override
-    public List<Student> selectAll() {
+    public List<StuDto> selectAll() {
         return myMapper.selectAll();
     }
 
@@ -51,7 +52,7 @@ public class MyServiceImpl implements MyService{
     }
 
     @Override
-    public List<Student> searchByKeyWord(String field,String keyword) {
+    public List<StuDto> searchByKeyWord(String field,String keyword) {
         return myMapper.searchByKeyWord(field,keyword);
     }
 
@@ -60,11 +61,11 @@ public class MyServiceImpl implements MyService{
      * @param pageRequest
      * @return
      */
-    public PageInfo<Student> getPageInfo(PageRequest pageRequest){
+    public PageInfo<StuDto> getPageInfo(PageRequest pageRequest){
         int pageNum = pageRequest.getPageNum();
         int pageSize = pageRequest.getPageSize();
         PageHelper.startPage(pageNum, pageSize);
-        List<Student> stuMenus = myMapper.selectPage();
-        return new PageInfo<Student>(stuMenus);
+        List<StuDto> stuMenus = myMapper.selectPage();
+        return new PageInfo<StuDto>(stuMenus);
     }
 }

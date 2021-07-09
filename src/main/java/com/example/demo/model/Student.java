@@ -23,6 +23,9 @@ public class Student implements Serializable {
     @ApiModelProperty("学生年龄")
     private Integer age;
 
+    @ApiModelProperty("班级编号")
+    private Integer classId;
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -33,6 +36,14 @@ public class Student implements Serializable {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Integer getClassId() {
+        return classId;
+    }
+
+    public void setClassId(Integer classId) {
+        this.classId = classId;
     }
 
     public Integer getId() {
@@ -47,12 +58,5 @@ public class Student implements Serializable {
         return age;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
+
 }
