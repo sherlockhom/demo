@@ -10,7 +10,7 @@
             b.className as className
         from student a
         left join class b on a.classId = b.classId
-        where id=#{id}
+        where a.id=#{id}
     </select>
 
 
@@ -40,11 +40,9 @@
     </select>
 
     <!--模糊查询-->
-    <!--<select id="searchByKeyWord" resultType="com.example.demo.model.Student">-->
-
-    <!--    select * from student where age like "%"#{keyword}"%" or name like "%"#{keyword}"%"-->
-    <!--</select>-->
-
+        <!--<select id="searchByKeyWord" resultType="com.example.demo.model.Student">-->
+        <!--    select * from student where age like "%"#{keyword}"%" or name like "%"#{keyword}"%"-->
+        <!--</select>-->
     <!--选择所要查询的字段，并进行关键字查询-->
     <select id="searchByKeyWord" resultType="com.example.demo.dto.StuDto">
         select
@@ -67,10 +65,34 @@
         order by a.id
     </select>
 
-    <!--联表查询-->
-    <!--<select id="">-->
+    <!--自定义的map集合-->
+    <resultMap id="classInfo" type="com.example.demo.dto.ClassDto">
+        <id  column="id" property="classId"></id>
+        <result  column="name" property="className"></result>
+        <!--配置集合信息-->
+        <collection property="stuInfo" ofType="com.example.demo.model.Student">
+            <id column="stuId" property="id"></id>
+            <result column="stuAge" property="age"></result>
+            <result column="stuName" property="name"></result>
+            <result column="classId" property="classId"></result>
+        </collection>
+    </resultMap>
 
-    <!--</select>-->
+    <!--班级信息查询-->
+    <select id="searchClassInfoByClassId" resultMap="classInfo">
+        select
+            s.id as stuId,
+            s.age as stuAge,
+            s.name as stuName,
+            s.classId as classId,
+            c.className as name,
+            c.classId as id
+        from student s,class c
+        where s.classId = c.classId
+        <if test="classId != null">
+            and c.classId=#{classId}
+        </if>
+    </select>
 
     <!--添加学生信息-->
     <insert id="addStudent" parameterType="com.example.demo.model.Student">

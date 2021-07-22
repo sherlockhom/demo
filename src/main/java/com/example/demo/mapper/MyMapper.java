@@ -1,5 +1,6 @@
 package com.example.demo.mapper;
 
+import com.example.demo.dto.ClassDto;
 import com.example.demo.dto.StuDto;
 import com.example.demo.model.Student;
 import org.apache.ibatis.annotations.Param;
@@ -54,4 +55,11 @@ public interface MyMapper {
      * @return
      */
     List<StuDto> searchByKeyWord(@Param("field") String field,@Param("keyword") String keyword);
+
+    /**
+     * 班级信息查询
+     * @param classId
+     * @return
+     */
+    List<ClassDto> searchClassInfoByClassId(@Param("classId") int classId);
 }
